@@ -1,4 +1,5 @@
 import card2 from '../assets/card2.png'
+import '../styles/card.css'
 
 const Card2 = () => {
 const name = "Jane Foster"

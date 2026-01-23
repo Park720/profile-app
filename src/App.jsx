@@ -1,24 +1,40 @@
-import Card1 from './components/card1.jsx'
-import Card2 from './components/Card2.jsx'
-import Navbar from './components/Navbar.jsx'
-import './App.css'
+import Navbar from './components/Navbar';
+import Wrapper from './components/Wrapper';
+import About from './components/About';
+import Card from './components/Card';
+import './App.css'; 
+import man1 from "./assets/man1.png";   
+import woman1 from "./assets/woman1.png"; 
+import woman2 from "./assets/woman2.png";
 
 function App() {
+  const profiles = [
+    { id: 0, name: "Jane Foster", title: "UX designer", image: woman1, },
+    { id: 1, name: "John Doe", title: "Frontend Developer", image: man1},
+    { id: 2, name: "Olivia Smith", title: "Backend Developer", image: woman2}
+  ];
 
   return (
     <>
-    <Navbar/>
-    <div>
-      <h1>Profiles App</h1> 
-      <h2>About</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-    <div className="card-container">      
-      <Card1/>
-      <Card2/>
-    </div>
+      <Navbar />
+      <h1>Profile App</h1>
+      <Wrapper id="about">
+        <About />
+      </Wrapper>
+      <Wrapper id="profiles">
+        <div className="grid">
+          {profiles.map((profile) => (
+            <Card
+              key={profile.id}
+              name={profile.name}
+              title={profile.title}
+              image={profile.image}
+            />
+          ))}
+        </div>
+      </Wrapper>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
