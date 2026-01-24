@@ -20,11 +20,9 @@ function App() {
     <>
       <Navbar />
       <h1>Profile App</h1>
-      
       <Wrapper id="about">
         <About />
       </Wrapper>
-      
       <Wrapper id="profiles">
         <CardContainer title="Student Profiles">
           {profiles.map((profile) => (
