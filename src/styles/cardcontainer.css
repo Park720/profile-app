@@ -5,6 +5,8 @@
     margin: 20px auto;
     max-width: 1200px; 
     background-color: #d0daf0;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1);
+
 }
 
 .card-grid-layout {
