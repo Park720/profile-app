@@ -22,7 +22,7 @@ function App() {
         <About />
       </Wrapper>
       <Wrapper id="profiles">
-        <div className="grid">
+        <div className="Cardgrid">
           {profiles.map((profile) => (
             <Card
               key={profile.id}
