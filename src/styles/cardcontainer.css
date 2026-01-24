@@ -1,0 +1,18 @@
+.card-container-wrapper {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 1200px; 
+    background-color: #d0daf0;
+}
+
+.card-grid-layout {
+    display: flex;           
+    flex-wrap: wrap;         
+    justify-content: left; 
+    gap: 20px;               
+    padding: 20px;           
+    max-width: 1200px;       
+    margin: 0 auto;   
+}

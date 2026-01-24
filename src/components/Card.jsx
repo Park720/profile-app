@@ -1,6 +1,6 @@
 import "../styles/card.css";
 
-const Card = ({name, title, image}) => {
+const Card = ({name, year, major, email, image}) => {
     return (
     <div className="profile-card">
         <div className="top">
@@ -8,7 +8,9 @@ const Card = ({name, title, image}) => {
         </div>
             <div className="bottom">
             <p>{name}</p>
-            <p>{title}</p>
+            <p>{year}</p>
+            <p>{major}</p>
+            <p>{email}</p>
         </div>
     </div>
     );

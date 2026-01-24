@@ -4,16 +4,6 @@
   text-align: center;
 }
 
-.Cardgrid {
-  display: flex;           
-  flex-wrap: wrap;         
-  justify-content: left; 
-  gap: 20px;               
-  padding: 20px;           
-  max-width: 1200px;       
-  margin: 0 auto;        
-}
-
 body {
   font-family: sans-serif;
   background-color: #ffffff;
