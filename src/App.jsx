@@ -1,8 +1,10 @@
 import Navbar from './components/Navbar';
 import Wrapper from './components/Wrapper';
+import Filters from './components/Filters';
 import About from './components/About';
 import Card from './components/Card';
-import CardContainer from './components/CardContainer'; // [중요] 새로 만든 컴포넌트 임포트
+import CardContainer from './components/CardContainer'; 
+import { useState } from 'react';
 import './App.css'; 
 
 import man1 from "./assets/man1.png";   
@@ -16,6 +18,31 @@ function App() {
     { id: 2, name: "Olivia Smith", year: "Sophomore", major: "UI/UX Design", email: "smith@purdue.edu", image: woman2}
   ];
 
+  const majors = [...new Set(profiles.map(profile => profile.major))];
+
+  const [major, setMajor] = useState("");
+  const [name, setName] = useState("");
+
+  const handleMajor = (e) => {
+    setMajor(e.target.value);
+  }
+
+  const handleSearch = (e) => {
+    setName(e.target.value);
+  }
+
+  const handleClear = () => {
+    setMajor(""); 
+    setName("");
+  }
+
+  const filteredProfiles = profiles.filter(profile => {
+    return (
+      (major === "" || profile.major === major) &&
+      (name === "" || profile.name.toLowerCase().includes(name.toLowerCase()))
+    );
+  });
+
   return (
     <>
       <Navbar />
@@ -24,8 +51,17 @@ function App() {
         <About />
       </Wrapper>
       <Wrapper id="profiles">
+        <Filters 
+          majors={majors} 
+          major={major}
+          name={name}
+          handleMajor={handleMajor} 
+          handleSearch={handleSearch} 
+          handleClear={handleClear} 
+          />
+        
         <CardContainer title="Student Profiles">
-          {profiles.map((profile) => (
+          {filteredProfiles.map((profile) => (
             <Card
               key={profile.id}
               name={profile.name}
