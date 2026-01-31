@@ -5,7 +5,7 @@ import About from './components/About';
 import Card from './components/Card';
 import CardContainer from './components/CardContainer'; 
 import { useState } from 'react';
-import './App.css'; 
+import styles from './App.module.css';
 
 import man1 from "./assets/man1.png";   
 import woman1 from "./assets/woman1.png"; 
@@ -22,6 +22,7 @@ function App() {
 
   const [major, setMajor] = useState("");
   const [name, setName] = useState("");
+  const [isNight, setIsNight] = useState(false);
 
   const handleMajor = (e) => {
     setMajor(e.target.value);
@@ -43,12 +44,13 @@ function App() {
     );
   });
 
+  const appClass = isNight ? `${styles.container} ${styles.nightMode}` : styles.container;
+  
   return (
-    <>
-      <Navbar />
-      <h1>Profile App</h1>
+    <div className={appClass}> {}
+      <Navbar isNight={isNight} onToggle={() => setIsNight(!isNight)} />
       <Wrapper id="about">
-        <About />
+        <About isNight={isNight} />
       </Wrapper>
       <Wrapper id="profiles">
         <Filters 
@@ -58,10 +60,11 @@ function App() {
           handleMajor={handleMajor} 
           handleSearch={handleSearch} 
           handleClear={handleClear} 
+          isNight={isNight}
           />
         
-        <CardContainer title="Student Profiles">
-          {filteredProfiles.map((profile) => (
+          <CardContainer title="Student Profiles" isNight={isNight}>
+            {filteredProfiles.map((profile) => (
             <Card
               key={profile.id}
               name={profile.name}
@@ -69,11 +72,12 @@ function App() {
               major={profile.major}
               email={profile.email}
               image={profile.image}
+              isNight={isNight}
             />
           ))}
         </CardContainer>
       </Wrapper>
-    </>
+    </div>
   );
 }
 

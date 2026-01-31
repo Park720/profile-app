@@ -1,0 +1,70 @@
+.filterContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    background-color: #d0daf0;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.nightMode {
+    background-color: #243447; 
+    color: #FFFFC2;
+}
+
+.filterDropdown,
+.filterSearch {
+    display: flex;
+    align-items: center;
+    margin-right: 1.5rem;
+}
+
+.filterContainer label {
+    font-weight: 700;
+}
+
+.nightMode select,
+.nightMode input {
+    background-color: #3d4d5d;
+    color: #FFFFC2;
+    border: 1px solid #555;
+}
+
+.filterContainer select,
+.filterContainer input {
+    height: 2rem;
+    margin: 0 0.5rem;
+}
+
+.filterContainer button {
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+}
+
+.nightMode button {
+    background-color: #2c2c2c;
+    color: #FFFFC2;
+    border: none;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .filterContainer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filterContainer button {
+        align-self: flex-start;
+    }
+    .filterDropdown,
+    .filterSearch {
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+    }
+    .filterContainer select,
+    .filterContainer input {
+        flex: 1;
+    }
+}

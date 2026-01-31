@@ -1,0 +1,23 @@
+.aboutSection {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.nightMode {
+    background-color: #2c2c2c;
+    color: #FFFFC2;
+}
+
+.aboutSection h1 {
+    font-size: 40px;
+}
+
+.aboutSection h2 {
+    font-size: 32px;
+}
+
+.aboutSection p {
+    font-size: 16px;
+    line-height: 1.6;
+}

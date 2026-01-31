@@ -1,12 +1,17 @@
-import '../styles/CardContainer.css';
+import React from 'react';
+import styles from './CardContainer.module.css';
 
-const CardContainer = ({ children }) => {
+const CardContainer = ({ children, isNight }) => {
+    const wrapperClass = isNight 
+        ? `${styles.cardContainerWrapper} ${styles.nightMode}` 
+        : styles.cardContainerWrapper;
+
     return (
-    <div className="card-container-wrapper">
-        <div className="card-grid-layout">
-            {children}
+        <div className={wrapperClass}>
+            <div className={styles.cardGridLayout}>
+                {children}
+            </div>
         </div>
-    </div>
     );
 };
 

@@ -1,0 +1,43 @@
+.navbar {
+  background-color: #4863A0;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.nightMode {
+  background-color: #243447;
+  border-bottom: 1px solid #333;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: #f0f0f0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nightMode a {
+  color: #FFFFC2;
+}
+
+.toggleBtn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #f0f0f0;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.toggleBtn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}

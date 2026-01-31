@@ -1,21 +1,25 @@
-import "../styles/filter.css"
+import React from 'react';
+import styles from './Filters.module.css'; 
 
+const Filters = ({ majors, major, name, handleMajor, handleSearch, handleClear, isNight }) => {
+    const containerClass = isNight 
+        ? `${styles.filterContainer} ${styles.nightMode}` 
+        : styles.filterContainer;
 
-const Filters = ({ majors, major, name, handleMajor, handleSearch, handleClear }) => {
     return (
-        <div className="filter-container">
-            <div className="filter-dropdown">
+        <div className={containerClass}>
+            <div className={styles.filterDropdown}>
                 <label htmlFor="major">Select a Major:</label>
                 <select id="major" value={major} onChange={handleMajor}>
                     <option value="">All</option>
                     {
-                        majors.map((major) => (
-                            <option key={major} value={major}>{major}</option>
+                        majors.map((m) => (
+                            <option key={m} value={m}>{m}</option>
                         ))
                     }
                 </select>
             </div>
-            <div className="filter-search">
+            <div className={styles.filterSearch}>
                 <label htmlFor="search">Search a Name:</label>
                 <input 
                     id="search" 
@@ -23,7 +27,7 @@ const Filters = ({ majors, major, name, handleMajor, handleSearch, handleClear }
                     value={name} 
                 />  
             </div>
-            <div className="filter-clear">
+            <div className={styles.filterClear}>
                 <button onClick={handleClear}>Clear Filters</button>
             </div>
         </div>

@@ -1,13 +1,19 @@
-import '../styles/navbar.css';
+import styles from './Navbar.module.css';
 
-const Navbar = () =>{
+const Navbar = ({ isNight, onToggle }) =>{
+    const navClass = isNight 
+    ? `${styles.navbar} ${styles.nightMode}` 
+    : styles.navbar;
+    
     return (
-        <header className="navbar">
-        <nav>
+        <header className={navClass}>        <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#profiles">Profiles</a>
         </nav>
+        <button className={styles.toggleBtn} onClick={onToggle}>
+            {isNight ? '☀️' : '🌙'}
+        </button>
     </header>
     );
 }
