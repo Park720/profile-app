@@ -12,7 +12,7 @@ const Navbar = ({ isNight, onToggle }) =>{
             <a href="#profiles">Profiles</a>
         </nav>
         <button className={styles.toggleBtn} onClick={onToggle}>
-            {isNight ? '☀️' : '🌙'}
+            {isNight ? 'Day' : 'Night'}
         </button>
     </header>
     );
