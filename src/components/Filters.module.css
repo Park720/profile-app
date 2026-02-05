@@ -1,7 +1,8 @@
 .filterContainer {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 2rem;
     border-radius: 1rem;
     background-color: #d0daf0;
@@ -57,11 +58,13 @@
     }
     .filterContainer button {
         align-self: flex-start;
+        margin-top: 1rem;
     }
     .filterDropdown,
     .filterSearch {
-        margin-bottom: 0.5rem;
-        margin-right: 0;
+        display: flex;
+        align-items: center;
+        margin-right: 1.5rem;
     }
     .filterContainer select,
     .filterContainer input {

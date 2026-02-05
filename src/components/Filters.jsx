@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Filters.module.css'; 
 
-const Filters = ({ majors, major, name, handleMajor, handleSearch, handleClear, isNight }) => {
+const Filters = ({ majors, major, name, handleMajor, years, year, handleYear, handleSearch, handleClear, isNight }) => {
     const containerClass = isNight 
         ? `${styles.filterContainer} ${styles.nightMode}` 
         : styles.filterContainer;
@@ -15,6 +15,17 @@ const Filters = ({ majors, major, name, handleMajor, handleSearch, handleClear, 
                     {
                         majors.map((m) => (
                             <option key={m} value={m}>{m}</option>
+                        ))
+                    }
+                </select>
+            </div>
+            <div className={styles.filterDropdown}>
+                <label htmlFor="year">Select a Year:</label>
+                <select id="year" value={year} onChange={handleYear}>
+                    <option value="">All</option>
+                    {
+                        years.map((y) => (
+                            <option key={y} value={y}>{y}</option>
                         ))
                     }
                 </select>
