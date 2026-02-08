@@ -5,6 +5,7 @@ import AddProfileForm from './components/AddProfileForm';
 import About from './components/About';
 import Card from './components/Card';
 import CardContainer from './components/CardContainer'; 
+import FetchedProfiles from './components/FetchedProfile';
 import { useState } from 'react';
 import styles from './App.module.css';
 
@@ -62,12 +63,15 @@ function App() {
   return (
     <div className={appClass}> {}
       <Navbar isNight={isNight} onToggle={() => setIsNight(!isNight)} />
+        
       <Wrapper id="about">
         <About isNight={isNight} />
       </Wrapper>
+
       <Wrapper id="add-profile">
         <AddProfileForm onAddProfile={updatedProfiles} />
       </Wrapper>
+
       <Wrapper id="profiles">
         <Filters 
           majors={majors} 
@@ -95,6 +99,13 @@ function App() {
             />
           ))}
         </CardContainer>
+      </Wrapper>
+
+      <Wrapper id="fetched-profiles">
+        <h2>
+          Fetched Profiles (API)
+        </h2>
+        <FetchedProfiles/>
       </Wrapper>
     </div>
   );
