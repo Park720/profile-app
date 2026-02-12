@@ -1,4 +1,5 @@
 import styles from './Navbar.module.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ isNight, onToggle }) =>{
     const navClass = isNight 
@@ -6,11 +7,14 @@ const Navbar = ({ isNight, onToggle }) =>{
     : styles.navbar;
     
     return (
-        <header className={navClass}>        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#profiles">Profiles</a>
+        <header className={navClass}>        
+        <nav>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/add-profile">AddProfile</Link>
+            <Link to="/other-profiles">OtherProfiles</Link>
         </nav>
+
         <button className={styles.toggleBtn} onClick={onToggle}>
             {isNight ? 'Day' : 'Night'}
         </button>
