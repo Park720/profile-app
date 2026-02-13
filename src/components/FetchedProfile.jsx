@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./Card"; 
 import styles from "./FetchedProfile.module.css";
+import { Link } from "react-router-dom";
 
 const FetchedProfiles = ({ }) => { 
 
@@ -55,6 +56,7 @@ const FetchedProfiles = ({ }) => {
         <div className={styles.grid} >
             {profiles.length > 0 ? (
                 profiles.map((profile) => (
+                    <Link key={profile.id} to ={`/other-profiles/${profile.id}`}>
                     <Card
                         key={profile.id}           
                         name={profile.name} 
@@ -62,6 +64,7 @@ const FetchedProfiles = ({ }) => {
                         email= {profile.email}     
                         image={profile.image_url}  
                     />
+                    </Link>
                 ))
             ) : (
                 <p>No profiles found.</p>

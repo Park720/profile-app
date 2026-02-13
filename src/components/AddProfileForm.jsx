@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import style from './AddProfileForm.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const stripTags = (input) => {
     return input.replace(/<\/?[^>]+(>|$)/g, "");
@@ -24,6 +25,7 @@ const AddProfileForm = ({ onAddProfile }) => {
     const [success, setSuccess] = useState(false)
 
     const {name, year, major, email, bio, image} = values
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -71,6 +73,7 @@ const AddProfileForm = ({ onAddProfile }) => {
             setSuccess("Profile is submitted successfully")
             setTimeout(() => {
                 setSuccess("")
+                navigate("/");
             }, 1000)
         } catch (error) {
             setError(error.message)

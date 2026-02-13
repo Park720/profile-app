@@ -5,7 +5,10 @@ import styles from './App.module.css';
 import Home from './pages/Home';
 import About from './pages/About';
 import AddProfile from './pages/AddProfile';
+import FetchedProfiles from './components/FetchedProfile';
 import OtherProfiles from './pages/OtherProfiles';
+import ProfileDetailPage from './pages/ProfileDetailPage';
+import ProfileLayOut from './pages/ProfileLayoutPage';
 import NotFound from './pages/NotFound';
 
 import man1 from "./assets/man1.png";   
@@ -36,7 +39,10 @@ function App() {
           <Route path="/" element={<Home profiles={profiles} isNight={isNight} />} />
           <Route path="/about" element={<About isNight={isNight} />} />
           <Route path="/add-profile" element={<AddProfile onAddProfile={addProfileHandler} isNight={isNight} />} />
-          <Route path="/other-profiles" element={<OtherProfiles isNight={isNight} />} />
+          <Route path="/other-profiles" element={<ProfileLayOut isNight={isNight} />}>
+          <Route index element={<FetchedProfiles isNight={isNight} />} />
+            <Route path=":id" element={<ProfileDetailPage isNight={isNight} />} />
+          </Route>
           <Route path="*" element={<NotFound isNight={isNight} />} />
         </Routes>
       </div>
