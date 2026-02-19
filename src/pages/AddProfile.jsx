@@ -1,15 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Wrapper from '../components/Wrapper';
 import AddProfileForm from '../components/AddProfileForm';
-import { useNavigate } from 'react-router-dom';
+import { ProfileContext } from '../context/ProfileContext';
 
-const AddProfile = ({ onAddProfile }) => {
-const navigate = useNavigate();
 
-const addProfile = (newProfile) => {
-    onAddProfile(newProfile)
-    alert("Profile added!")
-};
+const AddProfile = ({  }) => {
+
+const { addProfile } = useContext(ProfileContext); 
 
 return (
     <Wrapper id="add-profile">

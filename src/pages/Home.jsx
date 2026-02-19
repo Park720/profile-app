@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ModeContext } from '../context/ModeContext';
 import Wrapper from '../components/Wrapper';
 import Filters from '../components/Filters';
 import CardContainer from '../components/CardContainer';
 import Card from '../components/Card';
+import { ProfileContext } from '../context/ProfileContext';
 
-const Home = ({ profiles, isNight }) => {
+
+const Home = ({  }) => {
+    const { theme } = useContext(ModeContext);
+    const { profiles } = useContext(ProfileContext);
+    
     const [major, setMajor] = useState("");
     const [year, setYear] = useState("");
     const [name, setName] = useState("");
@@ -43,9 +49,9 @@ return (
             handleYear={handleYear}
             handleSearch={handleSearch} 
             handleClear={handleClear} 
-            isNight={isNight}
+            isNight={theme === "dark"}
         />
-        <CardContainer title="Student Profiles" isNight={isNight}>
+        <CardContainer title="Student Profiles" isNight={theme === "dark"}>
             {filteredProfiles.length > 0 ? (
                 filteredProfiles.map((profile) => (
                 <Card
@@ -55,7 +61,7 @@ return (
                     major={profile.major}
                     email={profile.email}
                     image={profile.image}
-                    isNight={isNight}
+                    isNight={theme === "dark"}
                 />
             ))
             ) : (

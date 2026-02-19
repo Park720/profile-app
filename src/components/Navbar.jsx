@@ -1,8 +1,12 @@
 import styles from './Navbar.module.css';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { ModeContext } from '../context/ModeContext';
 
-const Navbar = ({ isNight, onToggle }) =>{
-    const navClass = isNight 
+const Navbar = ({ }) =>{
+    const { theme, toggleTheme } = useContext(ModeContext);
+
+    const navClass = theme === "dark"
     ? `${styles.navbar} ${styles.nightMode}` 
     : styles.navbar;
     
@@ -15,8 +19,8 @@ const Navbar = ({ isNight, onToggle }) =>{
             <Link to="/other-profiles">OtherProfiles</Link>
         </nav>
 
-        <button className={styles.toggleBtn} onClick={onToggle}>
-            {isNight ? 'Day' : 'Night'}
+        <button onClick={toggleTheme}>
+            {theme ? 'Day' : 'Night'}
         </button>
     </header>
     );
