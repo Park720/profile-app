@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './Filters.module.css'; 
+import { memo } from 'react';
 
-const Filters = ({ majors, major, name, handleMajor, years, year, handleYear, handleSearch, handleClear, isNight }) => {
+const Filters = memo(({ majors, major, name, handleMajor, years, year, handleYear, handleSearch, handleClear, isNight }) => {
     const containerClass = isNight 
         ? `${styles.filterContainer} ${styles.nightMode}` 
         : styles.filterContainer;
@@ -43,6 +44,6 @@ const Filters = ({ majors, major, name, handleMajor, years, year, handleYear, ha
             </div>
         </div>
     );
-}
+});
 
-export default Filters;
+export default React.memo(Filters);

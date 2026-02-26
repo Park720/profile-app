@@ -5,6 +5,7 @@ import Filters from '../components/Filters';
 import CardContainer from '../components/CardContainer';
 import Card from '../components/Card';
 import { ProfileContext } from '../context/ProfileContext';
+import { useMemo, useCallback } from 'react';
 
 
 const Home = ({  }) => {
@@ -15,26 +16,38 @@ const Home = ({  }) => {
     const [year, setYear] = useState("");
     const [name, setName] = useState("");
 
-    const majors = [...new Set(profiles.map(profile => profile.major))];
-    const years = [...new Set(profiles.map(profile => profile.year))];
+    const majors = useMemo(() => [...new Set(profiles.map(p => p.major))], [profiles]);
+    const years = useMemo(() => [...new Set(profiles.map(p => p.year))], [profiles]);
 
-    const handleMajor = (e) => setMajor(e.target.value);
-    const handleYear = (e) => setYear(e.target.value);
-    const handleSearch = (e) => setName(e.target.value);
+    const handleMajor = useCallback((e) => {
+        console.log("clicked...");
+        setMajor(e.target.value);
+    }, []);
+    const handleYear = useCallback((e) => {
+        console.log("clicked...");
+        setYear(e.target.value);
+    }, []);
+    const handleSearch = useCallback((e) => {
+        console.log("clicked...");
+        setName(e.target.value);
+    }, []);
 
-    const handleClear = () => {
+    const handleClear = useCallback(() => {
+        console.log("clicked...");
         setMajor("");
         setYear("");
         setName("");
-    };
+    }, []);
 
-    const filteredProfiles = profiles.filter(profile => {
-        return (
-            (major === "" || profile.major === major) &&
-            (year === "" || profile.year === year) &&
-            (name === "" || profile.name.toLowerCase().includes(name.toLowerCase()))
-        );
-    });
+    const filteredProfiles = useMemo(() => {
+        return profiles.filter(profile => {
+            return (
+                (major === "" || profile.major === major) &&
+                (year === "" || profile.year === year) &&
+                (name === "" || profile.name.toLowerCase().includes(name.toLowerCase()))
+            );
+        });
+    }, [profiles, major, year, name]);
 
 return (
     <main>

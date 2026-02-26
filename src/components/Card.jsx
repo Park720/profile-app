@@ -37,4 +37,4 @@ const Card = ({name, year, major, email, image, isNight}) => {
     );
 };
 
-export default Card;
+export default React.memo(Card);
