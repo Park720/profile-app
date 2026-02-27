@@ -1,1 +1,0 @@
-import{j as r,O as e,L as s}from"./index-CASI20Iw.js";import{W as t}from"./Wrapper-B1jbNB_X.js";const i=()=>r.jsxs(r.Fragment,{children:[r.jsx(e,{}),r.jsx("p",{children:"Other Profiles Page"}),r.jsx(t,{children:r.jsx(s,{to:"/other-profiles",className:"button",style:{marginTop:"20px",cursor:"pointer"},children:"Go Back"})})]});export{i as default};

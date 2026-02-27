@@ -1,0 +1,1 @@
+import{j as o,L as e}from"./index-BG8rblNU.js";import{u as t}from"./useTitles-BYVkUN8f.js";const r=()=>(t("404 Not Found"),o.jsxs("div",{style:{padding:"20px",textAlign:"center"},children:[o.jsx("h1",{children:"404 - Page Not Found"}),o.jsx("p",{children:"The page you are looking for does not exist."}),o.jsx(e,{to:"/",children:"Go to Homepage"})]}));export{r as default};

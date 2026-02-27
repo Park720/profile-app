@@ -1,1 +1,0 @@
-import{j as e,L as o}from"./index-CASI20Iw.js";const n=()=>e.jsxs("div",{style:{padding:"20px",textAlign:"center"},children:[e.jsx("h1",{children:"404 - Page Not Found"}),e.jsx("p",{children:"The page you are looking for does not exist."}),e.jsx(o,{to:"/",children:"Go to Homepage"})]});export{n as default};
