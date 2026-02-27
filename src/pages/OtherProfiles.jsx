@@ -1,8 +1,12 @@
 import React from 'react';
 import Wrapper from '../components/Wrapper';
 import FetchedProfiles from '../components/FetchedProfile';
+import useTitles from '../hooks/useTitles';
+
 
 const OtherProfiles = ({ isNight }) => {
+    useTitles("Other Profiles");
+    
 return (
     <Wrapper id="other-profiles">
         <h2 style={{ padding: '20px', textAlign: 'center' }}>

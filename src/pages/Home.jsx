@@ -6,39 +6,35 @@ import CardContainer from '../components/CardContainer';
 import Card from '../components/Card';
 import { ProfileContext } from '../context/ProfileContext';
 import { useMemo, useCallback } from 'react';
+import useFilters from '../hooks/useFilters';
+import useTitles from '../hooks/useTitles';
 
 
 const Home = ({  }) => {
+    useTitles("Home");
     const { theme } = useContext(ModeContext);
     const { profiles } = useContext(ProfileContext);
+    const { name, handleSearch, handleClear: clearSearch } = useFilters();
     
     const [major, setMajor] = useState("");
     const [year, setYear] = useState("");
-    const [name, setName] = useState("");
 
     const majors = useMemo(() => [...new Set(profiles.map(p => p.major))], [profiles]);
     const years = useMemo(() => [...new Set(profiles.map(p => p.year))], [profiles]);
 
     const handleMajor = useCallback((e) => {
-        console.log("clicked...");
         setMajor(e.target.value);
     }, []);
     const handleYear = useCallback((e) => {
-        console.log("clicked...");
         setYear(e.target.value);
     }, []);
-    const handleSearch = useCallback((e) => {
-        console.log("clicked...");
-        setName(e.target.value);
-    }, []);
 
-    const handleClear = useCallback(() => {
-        console.log("clicked...");
+    const handleClearAll = useCallback(() => {
         setMajor("");
         setYear("");
-        setName("");
-    }, []);
-
+        clearSearch();
+    }, [clearSearch]);
+    
     const filteredProfiles = useMemo(() => {
         return profiles.filter(profile => {
             return (
@@ -61,7 +57,7 @@ return (
             handleMajor={handleMajor} 
             handleYear={handleYear}
             handleSearch={handleSearch} 
-            handleClear={handleClear} 
+            handleClear={handleClearAll} 
             isNight={theme === "dark"}
         />
         <CardContainer title="Student Profiles" isNight={theme === "dark"}>

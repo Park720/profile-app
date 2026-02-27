@@ -3,9 +3,12 @@ import Wrapper from '../components/Wrapper';
 import AboutComponent from '../components/About';
 import { useContext } from 'react';
 import { ModeContext } from '../context/ModeContext';
+import useTitles from '../hooks/useTitles';
 
 const About = ({  }) => {
     const { theme } = useContext(ModeContext);
+    useTitles("About");
+
 return (
     <Wrapper id="about">
         <AboutComponent isNight={theme === "dark"} />

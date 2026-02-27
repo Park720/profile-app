@@ -1,24 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Card from "./Card"; 
 import styles from "./FetchedProfile.module.css";
 import { Link } from "react-router-dom";
+import useFilters from "../hooks/useFilters";
 
 const FetchedProfiles = ({ }) => { 
 
     const [profiles, setProfiles] = useState([]); 
     const [titles, setTitles] = useState([]);     
-    const [title, setTitle] = useState("");       
-    const [name, setName] = useState("");         
+    const [title, setTitle] = useState(""); 
+    
+    const { name, handleSearch, handleClear: clearSearch } = useFilters();
+
     const handleChangeTitle = (event) => {
         setTitle(event.target.value);
     };
-    const handleSearch = (event) => {
-        setName(event.target.value);
-    };
-    const handleClear = () => {
-    setTitle("");
-    setName("");
-    };
+
+    const handleClear = useCallback(() => {
+        setTitle("");
+        clearSearch();
+    }, [clearSearch]);
 
     useEffect(() => {
     fetch("https://web.ics.purdue.edu/~zong6/profile-app/get-titles.php")

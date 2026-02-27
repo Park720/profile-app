@@ -1,10 +1,13 @@
 import Wrapper from '../components/Wrapper';
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import style from './ProfileDetailPage.module.css';
+import useTitles from '../hooks/useTitles';
+
 
 
 const ProfileDetailPage = () => {
+    useTitles("Profile Detail");
     const { id } = useParams();
     const [profile, setProfile] = useState(null);
     useEffect(() => {
